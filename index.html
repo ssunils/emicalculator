@@ -1,0 +1,73 @@
+<!doctype html>
+<html ng-app="calculate">
+<head>
+  <meta charset="utf-8">
+  <title>Angular EMI Calculator</title>
+  
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/app.css"/>
+</head>
+<body>
+    <div class="container wrapper" >
+        <div class="row mb60" ng-controller="GetValues">
+            <form name="emiCalculator" ng-submit="submit()">
+            <div class="col-md-12">
+                <h1 class="mb60">Angular EMI Calculator <span><small>by</small> Sunil Soundarapandian</span></h1>
+            </div>
+            <div class="col-md-3 ">
+                <div class="form-group">
+                  <label>Loan Amount</label>
+                  <input type="text" class="form-control" ng-model="entry.amount" placeholder="e.g., 1000000">
+                </div>
+              </div>
+            <div class="col-md-3 ">
+                <div class="form-group">
+                  <label >Loan Tenure</label>
+                  <input type="text" class="form-control" ng-model="entry.tenure" placeholder="In Months">
+                </div>
+              </div>
+            <div class="col-md-3 ">
+                <div class="form-group">
+                  <label >Interest Rate</label>
+                  <input type="text" class="form-control" ng-model="entry.interest" placeholder="e.g., 10.25">
+                </div>
+              </div>
+            <div class="col-md-3 ">
+                <div class="form-group">
+                    <label >&nbsp;</label>
+                    <input type="submit" class=" btn btn-block btn-primary" value="Calculate">
+                </div>
+              </div>
+                </form>
+            <div class="col-md-6">
+                <table id="emiTable" class="table table-striped"  style="display: none;">
+                    <thead>
+                        <tr>
+                            <td>Month</td>
+                            <td>EMI Payment</td>
+                            <td>Balance</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="month in months">
+                            <td>{{month.sno}}</td>
+                            <td>{{month.emi}}</td>
+                            <td>{{month.balance}}</td>
+                        </tr >
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6">
+                <div google-chart chart="chart" style="{{chart.cssStyle}}"> </div>
+            </div>
+        </div>
+    </div>
+            
+  <script src="lib/jquery-1.11.1.min.js"></script>
+  <script src="lib/angular/angular.min.js"></script>
+  <script src="lib/ng-google-chart.js"></script>
+  <script src="lib/angular/angular-ui-router.js"></script>
+  <script src="js/calcumateemi.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -10,26 +10,26 @@
 <body>
     <div class="container wrapper" >
         <div class="row mb60" ng-controller="GetValues">
-            <form name="emiCalculator" ng-submit="submit()">
+            <form name="emiCalculator" ng-submit="submit()" >
             <div class="col-md-12">
                 <h1 class="mb60">Angular EMI Calculator <span><small>by</small> Sunil Soundarapandian</span></h1>
             </div>
             <div class="col-md-3 ">
                 <div class="form-group">
                   <label>Loan Amount</label>
-                  <input type="text" class="form-control" ng-model="entry.amount" placeholder="e.g., 1000000">
+                  <input type="number" class="form-control" required ng-model="entry.amount" placeholder="e.g., 1000000">
                 </div>
               </div>
             <div class="col-md-3 ">
                 <div class="form-group">
                   <label >Loan Tenure</label>
-                  <input type="text" class="form-control" ng-model="entry.tenure" placeholder="In Months">
+                  <input type="number" class="form-control" required ng-model="entry.tenure" placeholder="In Months">
                 </div>
               </div>
             <div class="col-md-3 ">
                 <div class="form-group">
                   <label >Interest Rate</label>
-                  <input type="text" class="form-control" ng-model="entry.interest" placeholder="e.g., 10.25">
+                  <input type="number" step="any" required class="form-control" ng-model="entry.interest" placeholder="e.g., 10.25">
                 </div>
               </div>
             <div class="col-md-3 ">
